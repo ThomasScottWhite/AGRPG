@@ -1,12 +1,29 @@
-print("Hello world, from server! 123 lets goooo")
-print("Hello world, from server! 123 lets goooo")
+--!strict
 
-print("Test")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local shared = ReplicatedStorage:WaitForChild("Shared")
+local Types = require(shared:WaitForChild("Types"))
 
-print("Test")
+local ServerScriptService = game:GetService("ServerScriptService")
+local Server = ServerScriptService:WaitForChild("Server")
+local PlayerSlotService = require(Server:WaitForChild("PlayerSlotService"))
+local PlayerDataService = require(Server:WaitForChild("PlayerDataService"))
+local Players = game:GetService("Players")
 
-print("Update")
+function DeleteAllPlayerData(player: Player)
+	local PlayerSlotData = PlayerSlotService.GetPlayerSaveSlots(player)
+	if PlayerSlotData == nil then
+		return
+	end
+	for characterName, characterData in pairs(PlayerSlotData.SaveMetaData) do
+		PlayerDataService.DeleteSlotData(player, characterName)
+		PlayerSlotService.DeletePlayerSaveSlots(player, characterName)
+	end
+end
 
-print("Update")
-
-print("Live update")
+-- while true do
+-- 	for _, player in ipairs(Players:GetPlayers()) do
+-- 		DeleteAllPlayerData(player)
+-- 	end
+-- 	task.wait(5)
+-- end

@@ -1,0 +1,155 @@
+{
+  "name": "AGRPG",
+  "className": "DataModel",
+  "filePaths": ["default.project.json"],
+  "children": [
+    { "name": "Lighting", "className": "Lighting" },
+    {
+      "name": "ReplicatedStorage",
+      "className": "ReplicatedStorage",
+      "children": [
+        {
+          "name": "Shared",
+          "className": "Folder",
+          "children": [
+            {
+              "name": "Skills",
+              "className": "Folder",
+              "children": [
+                {
+                  "name": "SkillRegistry",
+                  "className": "ModuleScript",
+                  "filePaths": ["src/shared\\Skills\\SkillRegistry.luau"]
+                },
+                {
+                  "name": "skills",
+                  "className": "Folder",
+                  "children": [
+                    {
+                      "name": "DefaultAttack",
+                      "className": "ModuleScript",
+                      "filePaths": [
+                        "src/shared\\Skills\\skills\\DefaultAttack.luau"
+                      ]
+                    },
+                    {
+                      "name": "Fireball",
+                      "className": "ModuleScript",
+                      "filePaths": ["src/shared\\Skills\\skills\\Fireball.luau"]
+                    },
+                    {
+                      "name": "Iceball",
+                      "className": "ModuleScript",
+                      "filePaths": ["src/shared\\Skills\\skills\\Iceball.luau"]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Types",
+              "className": "ModuleScript",
+              "filePaths": ["src/shared\\Types.luau"]
+            },
+            {
+              "name": "DBTemplates",
+              "className": "Folder",
+              "children": [
+                {
+                  "name": "PlayerData",
+                  "className": "ModuleScript",
+                  "filePaths": ["src/shared\\DBTemplates\\PlayerData.luau"]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ServerScriptService",
+      "className": "ServerScriptService",
+      "children": [
+        {
+          "name": "Server",
+          "className": "Script",
+          "filePaths": ["src/server\\init.server.luau"],
+          "children": [
+            {
+              "name": "ProfileStore",
+              "className": "ModuleScript",
+              "filePaths": ["src/server\\ProfileStore.luau"]
+            },
+            {
+              "name": "PlayerSlotService",
+              "className": "ModuleScript",
+              "filePaths": ["src/server\\PlayerSlotService.luau"]
+            },
+            {
+              "name": "PlayerCharacterSelect",
+              "className": "Script",
+              "filePaths": ["src/server\\PlayerCharacterSelect.server.luau"]
+            }
+          ]
+        }
+      ]
+    },
+    { "name": "SoundService", "className": "SoundService" },
+    {
+      "name": "StarterPlayer",
+      "className": "StarterPlayer",
+      "children": [
+        {
+          "name": "StarterPlayerScripts",
+          "className": "StarterPlayerScripts",
+          "children": [
+            {
+              "name": "Client",
+              "className": "LocalScript",
+              "filePaths": ["src/client\\init.client.luau"],
+              "children": [
+                {
+                  "name": "UI",
+                  "className": "Folder",
+                  "children": [
+                    { "name": "SelectSaveSlot", "className": "Folder" }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Workspace",
+      "className": "Workspace",
+      "children": [{ "name": "Baseplate", "className": "Part" }]
+    },
+    {
+      "name": "StarterGui",
+      "className": "StarterGui",
+      "children": [
+        {
+          "name": "GUI",
+          "className": "Folder",
+          "children": [
+            {
+              "name": "SelectCharacter",
+              "className": "Folder",
+              "children": [
+                {
+                  "name": "SelectCharacterUIScript",
+                  "className": "LocalScript",
+                  "filePaths": [
+                    "src/gui\\SelectCharacter\\SelectCharacterUIScript.client.luau"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

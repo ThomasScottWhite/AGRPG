@@ -1,31 +1,39 @@
 -- src/shared/Types.luau
 
-export type ModifierType = "Flat" | "Multiplicative" | "Additive"
+export type ModifierType = "Flat" | "Multi" | "Additive"
 
 export type Modifier = {
 	Type: ModifierType,
 	Values: { [string]: number },
 }
 
-export type SkillTree = {
+export type AbilityTreeNode = {
 	Name: string,
 	Description: string,
 	MaxPoints: number,
-	Modifiers: { Modifier },
+	Modifiers: { [string]: Modifier },
 	Icon: string,
+	Requires: { [string]: any }?,
 }
 
-export type ClassSkillTree = {
-	[string]: SkillTree,
+export type AbilityTree = {
+	[string]: AbilityTreeNode,
 }
 
-export type DataModel = {
-	ClassSkillTree: ClassSkillTree,
+type AbilityModifier = {
+	Type: ModifierType,
+	Values: { [string]: number },
+}
+export type Ability = {
+	Id: string,
+	Name: string,
+	Description: string,
+	Icon: string,
+	Cooldown: number,
+	ManaCost: number,
+	Class: string,
+	DefaultModifiers: { AbilityModifier }?,
+	AbilityTree: AbilityTree?,
 }
 
-export type DataModels = {
-	[string]: DataModel,
-}
-
--- Return an empty table to satisfy Lua's require() mechanism
 return {}
